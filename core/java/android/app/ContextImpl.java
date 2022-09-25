@@ -200,6 +200,13 @@ class ContextImpl extends Context {
     private static final String XATTR_INODE_CACHE = "user.inode_cache";
     private static final String XATTR_INODE_CODE_CACHE = "user.inode_code_cache";
 
+
+    private static final Set<String> LINEAR_MOTOR_VIBRATOR_WHITELIST = Set.of(
+        "com.oneplus.camera",
+        "com.oneplus.gallery",
+        "com.oplus.camera"
+    );
+
     /**
      * Map from package name, to preference name, to cached preferences.
      */
@@ -2131,6 +2138,10 @@ class ContextImpl extends Context {
     public Object getSystemService(String name) {
         if (GmsCompat.isEnabled()) {
             if (GmsHooks.isHiddenSystemService(name)) {
+                return null;
+        if (Context.LINEARMOTOR_VIBRATOR_SERVICE.equals(name)) {
+            if (!LINEAR_MOTOR_VIBRATOR_WHITELIST.contains(getPackageName())) {
+                Log.w(TAG, "LinearMotorVibrator is unsupported for external use");
                 return null;
             }
         }
