@@ -772,6 +772,10 @@ final class DefaultPermissionGrantPolicy {
                         DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE, userId),
                 userId, CONTACTS_PERMISSIONS, NOTIFICATION_PERMISSIONS);
 
+        // OnePlus Gallery
+        grantSystemFixedPermissionsToSystemPackage(pm, "com.oneplus.gallery", userId,
+                STORAGE_PERMISSIONS);
+
         // Maps
         if (mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE, 0)) {
             grantPermissionsToSystemPackage(pm,
