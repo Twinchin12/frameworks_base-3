@@ -5859,6 +5859,25 @@ public final class Settings {
          * @hide
          */
         public static final String SECURE_LOCKSCREEN_QS_DISABLED = "secure_lockscreen_qs_disabled";
+        
+        /**
+         * Haptic feedback on brightness slider
+         * @hide
+         */ 
+        public static final String BRIGHTNESS_SLIDER_HAPTIC_FEEDBACK = "brightness_slider_haptic_feedback";
+
+        /**
+         * Haptic feedback on volume panel
+         * @hide
+         */ 
+        public static final String VOLUME_PANEL_HAPTIC_FEEDBACK = "volume_panel_haptic_feedback";
+
+        /**
+         * Haptic feedback on scroll fling
+         * @hide
+         */ 
+        @Readable
+        public static final String SCROLL_FLING_HAPTIC_FEEDBACK = "scroll_fling_haptic_feedback";
 
         /**
          * reTicker Status
